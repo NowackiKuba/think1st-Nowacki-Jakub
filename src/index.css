@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +14,36 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.arrow_box {
+  position: relative;
+}
+
+.arrow_box:after,
+.arrow_box:before {
+  bottom: 100%;
+  border: solid transparent;
+  content: '';
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:before {
+  border-width: 6px; /* Outer arrow border width */
+  left: 50%;
+  margin-left: -6px; /* Adjusted margin-left to match the border-width */
+  border-color: rgba(203, 182, 229, 0); /* Make other borders transparent */
+  border-bottom-color: #cbb6e5;
+}
+
+.arrow_box:after {
+  border-width: 5px; /* Inner arrow width */
+  left: 50%;
+  margin-left: -5px; /* Adjusted margin-left to match the border-width */
+  border-color: rgba(255, 255, 255, 0); /* Make other borders transparent */
+
+  top: -5px; /* Position it to overlap the border created by :before */
 }
