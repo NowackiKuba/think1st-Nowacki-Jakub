@@ -1,4 +1,4 @@
-import React, { ChangeEvent, Dispatch, SetStateAction } from 'react';
+import React, { ChangeEvent } from 'react';
 import Label from './Label';
 import DeleteIcon from './DeleteIcon';
 

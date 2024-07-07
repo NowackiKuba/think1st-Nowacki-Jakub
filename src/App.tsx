@@ -69,7 +69,7 @@ function App() {
   const handleSubmit = async (e: ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validate()) {
-      const res = await fetch('http://letsworkout.pl/submit', {
+      await fetch('http://letsworkout.pl/submit', {
         method: 'POST',
         body: JSON.stringify(formData),
       });
