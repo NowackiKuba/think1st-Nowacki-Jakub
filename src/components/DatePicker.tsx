@@ -105,11 +105,11 @@ const Calendar = ({
                 ? 'text-gray-300'
                 : daysOff?.find(
                     (d) =>
-                      d.date ===
+                      d?.date ===
                         format(
-                          format(new Date(day).setFullYear(2023), 'yyyy-MM-dd'),
+                          new Date(day || new Date()).setFullYear(2023),
                           'yyyy-MM-dd'
-                        ) && d.type === 'NATIONAL_HOLIDAY'
+                        ) && d?.type === 'NATIONAL_HOLIDAY'
                   )
                 ? 'text-gray-300'
                 : ''
@@ -138,11 +138,14 @@ const Calendar = ({
       format(day, 'EE') === 'Sun' ||
       daysOff?.find(
         (d) =>
-          d.date ===
+          d?.date ===
             format(
-              format(new Date(day).setFullYear(2023), 'yyyy-MM-dd'),
+              format(
+                new Date(day || new Date()).setFullYear(2023),
+                'yyyy-MM-dd'
+              ),
               'yyyy-MM-dd'
-            ) && d.type === 'NATIONAL_HOLIDAY'
+            ) && d?.type === 'NATIONAL_HOLIDAY'
       )
     ) {
       return;
@@ -170,9 +173,12 @@ const Calendar = ({
         </div>
         {daysOff?.find(
           (d) =>
-            d.date ===
+            d?.date ===
               format(
-                format(new Date(selectedDate!).setFullYear(2023), 'yyyy-MM-dd'),
+                format(
+                  new Date(selectedDate! || new Date()).setFullYear(2023),
+                  'yyyy-MM-dd'
+                ),
                 'yyyy-MM-dd'
               ) && d.type === 'OBSERVANCE'
         ) && (
